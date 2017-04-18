@@ -61,12 +61,193 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.grunt-text-replace">module grunt-text-replace</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-text-replace.grunt-text-replace">
+            function <span class="apidocSignatureSpan"></span>grunt-text-replace
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-text-replace.toString">
+            function <span class="apidocSignatureSpan">grunt-text-replace.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.grunt-text-replace.toString">module grunt-text-replace.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-text-replace.toString.toString">
+            function <span class="apidocSignatureSpan">grunt-text-replace.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.grunt-text-replace" id="apidoc.module.grunt-text-replace">module grunt-text-replace</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-text-replace.grunt-text-replace" id="apidoc.element.grunt-text-replace.grunt-text-replace">
+        function <span class="apidocSignatureSpan"></span>grunt-text-replace
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">grunt-text-replace = function (grunt) {
+
+  grunt.initConfig({
+    jshint: {
+      all: [
+        &#x27;Gruntfile.js&#x27;,
+        &#x27;tasks<span class="apidocCodeCommentSpan">/*.js&#x27;,
+        &#x27;&#x3c;%= nodeunit.tests %&#x3e;&#x27;,
+      ],
+      options: {
+        jshintrc: &#x27;.jshintrc&#x27;,
+      },
+    },
+
+    replace: {
+      example: {
+        src: [&#x27;test/text_files/example.txt&#x27;],
+        dest: &#x27;test/modified/&#x27;,
+        replacements: [{
+          from: &#x27;Hello&#x27;,
+          to: &#x27;Good bye&#x27;
+        }, {
+          from: /(f|F)(o{2,100})/g,
+          to: &#x27;M$2&#x27;
+        }, {
+          from: /&#x22;localhost&#x22;/,
+          to: function (matchedWord, index, fullText, regexMatches) {
+            return &#x27;&#x22;www.mysite.com&#x22;&#x27;;
+          }
+        }, {
+          from: &#x27;&#x3c;p&#x3e;Version:&#x3c;/p&#x3e;&#x27;,
+          to: &#x27;&#x3c;p&#x3e;Version: &#x3c;%= grunt.template.date(&#x22;18 Feb 2013&#x22;, &#x22;yyyy-mm-dd&#x22;) %&#x3e;&#x3c;/p&#x3e;&#x27;
+        }, {
+          from: /[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4}/g,
+          to: function() {
+            return &#x22;&#x3c;%= grunt.template.date(&#x27;18 Feb 2013&#x27;, &#x27;dd/mm/yyyy&#x27;) %&#x3e;&#x22;;
+          }
+        }]
+      },
+
+      overwrite: {
+        src: [&#x27;test/modified/example.txt&#x27;],
+        overwrite: true,
+        replacements: [{
+          from: &#x27;World&#x27;,
+          to: &#x27;PLANET&#x27;
+        }]
+      },
+
+      disable_template_processing: {
+        src: [&#x27;test/text_files/template-example.txt&#x27;],
+        dest: &#x27;test/modified/&#x27;,
+        options: {
+          processTemplates: false
+        },
+        replacements: [{
+          from: /url\(.*\)/g,
+          to: function () {
+            return &#x22;url(&#x3c;% some unprocessed text %&#x3e;)&#x22;;
+          }
+        }]
+      }
+
+    },
+
+    nodeunit: {
+      errors: [&#x27;test/text-replace-error-tests.js&#x27;],
+      tests: [&#x27;test/text-replace-unit-tests.js&#x27;],
+      replace: [&#x27;test/text-replace-functional-tests.js&#x27;],
+    },
+
+  });
+
+  grunt.loadTasks(&#x27;tasks&#x27;);
+  grunt.loadNpmTasks(&#x27;grunt-contrib-jshint&#x27;);
+  grunt.loadNpmTasks(&#x27;grunt-contrib-nodeunit&#x27;);
+
+  grunt.registerTask(&#x27;default&#x27;, [&#x27;jshint&#x27;, &#x27;test&#x27;]);
+
+/*
+    A note on testing (ie. running: grunt test):
+
+    There are two kinds of tests:
+
+    - Tests that don&#x27;t result in a warning
+    - Test that do result in a warning (grunt.warn())
+
+    I haven&#x27;t been able to find a convenient way of testing for grunt.warn()
+    events without enabling &#x27;--force&#x27; when running grunt. For this reason I&#x27;ve
+    set up the &#x27;test&#x27; task to just run the main tests, and only if --force is on
+    to run the error-throwing tests.
+
+*/
+</span>
+  grunt.registerTask(&#x27;test&#x27;, function () {
+    var isForceOn = grunt.option(&#x27;force&#x27;) || false;
+    var taskList = [&#x27;nodeunit:tests&#x27;];
+    if (isForceOn) {
+      taskList.push(&#x27;nodeunit:errors&#x27;);
+    }
+    taskList.push(&#x27;replace&#x27;);
+    taskList.push(&#x27;nodeunit:replace&#x27;);
+    grunt.task.run(taskList);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-text-replace.toString" id="apidoc.element.grunt-text-replace.toString">
+        function <span class="apidocSignatureSpan">grunt-text-replace.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.grunt-text-replace.toString" id="apidoc.module.grunt-text-replace.toString">module grunt-text-replace.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-text-replace.toString.toString" id="apidoc.element.grunt-text-replace.toString.toString">
+        function <span class="apidocSignatureSpan">grunt-text-replace.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
