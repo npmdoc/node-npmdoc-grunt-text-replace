@@ -1,9 +1,14 @@
-# api documentation for  [grunt-text-replace (v0.4.0)](https://github.com/yoniholmes/grunt-text-replace)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-text-replace.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-text-replace) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-text-replace.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-text-replace)
+# npmdoc-grunt-text-replace
+
+#### api documentation for  [grunt-text-replace (v0.4.0)](https://github.com/yoniholmes/grunt-text-replace)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-text-replace.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-text-replace) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-text-replace.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-text-replace)
+
 #### Replace text in files using strings, regexs or functions.
 
-[![NPM](https://nodei.co/npm/grunt-text-replace.png?downloads=true)](https://www.npmjs.com/package/grunt-text-replace)
+[![NPM](https://nodei.co/npm/grunt-text-replace.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/grunt-text-replace)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-text-replace/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-grunt-text-replace_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-text-replace/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-grunt-text-replace/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-grunt-text-replace/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-text-replace/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-text-replace/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-grunt-text-replace/build/screenCapture.npmPackageListing.svg)
 
@@ -57,13 +62,11 @@
     "main": "Gruntfile.js",
     "maintainers": [
         {
-            "name": "yoniholmes",
-            "email": "j.h.london.uk@gmail.com"
+            "name": "yoniholmes"
         }
     ],
     "name": "grunt-text-replace",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yoniholmes/grunt-text-replace.git"
@@ -74,16 +77,6 @@
     "version": "0.4.0"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module grunt-text-replace](#apidoc.module.grunt-text-replace)
-
-
-
-# <a name="apidoc.module.grunt-text-replace"></a>[module grunt-text-replace](#apidoc.module.grunt-text-replace)
 
 
 
