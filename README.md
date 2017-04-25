@@ -1,6 +1,6 @@
 # npmdoc-grunt-text-replace
 
-#### api documentation for  [grunt-text-replace (v0.4.0)](https://github.com/yoniholmes/grunt-text-replace)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-text-replace.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-text-replace) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-text-replace.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-text-replace)
+#### basic api documentation for  [grunt-text-replace (v0.4.0)](https://github.com/yoniholmes/grunt-text-replace)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-text-replace.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-text-replace) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-text-replace.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-text-replace)
 
 #### Replace text in files using strings, regexs or functions.
 
@@ -74,7 +74,8 @@
     "scripts": {
         "test": "grunt --force"
     },
-    "version": "0.4.0"
+    "version": "0.4.0",
+    "bin": {}
 }
 ```
 
